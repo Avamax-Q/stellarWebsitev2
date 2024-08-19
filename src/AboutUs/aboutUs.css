@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    background-color: black;
+    font-family: Poppins, sans-serif;
+    color: #eceff4;
+}
+
+header {
+    width: 1140px;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    height: 50px;
+    align-items: center;
+}
+
+header .logo {
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 36px;
+    color: #eceff4;
+}
+
+header nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.carousel::before, .carousel::after{
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    z-index: -1;
+    border-radius: 20% 30% 80% 10%;
+    filter: blur(1000px);
+    transition: 1s;
+    left: 40%;
+}
+
+.carousel::before {
+    background-image: linear-gradient(70deg, deepskyblue, green);
+
+    top: 120%; /* Lowered the gradient by 100px */
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel::after {
+    top: 110%;
+    left: -10%;
+    transform: translate(50%, 50%);
+    background-image: linear-gradient(70deg, green, deepskyblue);
+
+}
+
+
+
+
+main {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.intro {
+    margin-bottom: 50px;
+    text-align: center;
+    color: #eceff4;
+}
+
+.intro img {
+    max-width: 90%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.board-members h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #eceff4;
+}
+
+
+
+
+.grid {
+    padding: 75px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    justify-content: center;
+}
+
+.member {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px ;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    background-image: linear-gradient(
+        135deg,
+        rgba(46, 52, 64, 0.4),
+        rgba(136, 192, 208, 0.2)
+    );
+
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+}
+
+.member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.member p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #eceff4;
+}
+
+.member:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.member:hover .overlay {
+    opacity: 1;
+}
+
+.overlay a {
+    color: #fff;
+    background-color: #5e81ac;
+    opacity: 0.75;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.stars {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    animation: move-background 70s linear infinite;
+}
+
+/* Keyframes for Background Animation */
+@keyframes move-background {
+    from {
+        transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        transform: translate3d(1000px, 0px, 0px);
+    }
+}
