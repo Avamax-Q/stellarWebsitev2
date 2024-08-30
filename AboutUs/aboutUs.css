@@ -18,12 +18,18 @@ header{
     z-index: 2;
     position: relative;
     font-size: 18px;
+    padding-top:5px; /* Adds space between the top of the header and the top of the screen */
 }
-header .logo{
-    padding-top: 20px;
+
+header .logo {
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 48px;
     color: #eceff4;
+}
+header .logo img {
+    margin-right: 25px; /* Optional: Adds some space between the logo and the text */
 }
 header nav a {
     margin-left: 30px;

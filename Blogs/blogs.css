@@ -3,7 +3,7 @@ body{
     margin: 0;
     background-color: black;
     font-family: Poppins;
-
+    overflow: hidden;
 }
 
 header{
@@ -17,12 +17,18 @@ header{
     z-index: 2;
     position: relative;
     font-size: 18px;
+    padding-top:5px; /* Adds space between the top of the header and the top of the screen */
 }
-header .logo{
-    padding-top: 20px;
+
+header .logo {
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 48px;
     color: #eceff4;
+}
+header .logo img {
+    margin-right: 25px; /* Optional: Adds some space between the logo and the text */
 }
 
 header nav a{
@@ -46,4 +52,112 @@ header nav a{
     left: 50%;
     transform: translate(-10%, -50%);
     transition: 1s;
+}
+
+.carousel {
+    margin: 50px auto;
+    width: 90%;
+    height: calc(100vh - 150px); /* Adjust height as needed */
+    overflow-y: auto;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    padding: 20px 0;
+}
+
+.carousel::-webkit-scrollbar {
+    width: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.magazine {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.magazine-item {
+
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+    background-image: linear-gradient(
+        120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(0, 0, 0, 0.2),
+    );
+
+    border-radius: 20px;
+    overflow: hidden;
+    color: #d8dee9;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.magazine-item:hover {
+    transform: scale(1.05);
+}
+
+.magazine-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.magazine-item h3 {
+    margin: 15px;
+    font-size: 24px;
+}
+
+.magazine-item p {
+    margin: 0 15px 15px;
+    font-size: 16px;
+    color: #7ba6a2;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.stars {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    animation: move-background 70s linear infinite;
+}
+
+/* Keyframes for Background Animation */
+@keyframes move-background {
+    from {
+        transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        transform: translate3d(1000px, 0px, 0px);
+    }
 }

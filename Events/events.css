@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
     margin: 0;
     background-color: black;
-    font-family: Poppins;
-
+    font-family: 'Poppins', sans-serif;
+    color: #eceff4;
 }
 
-header{
+header {
     width: 1340px;
     min-width: 90%;
     display: flex;
@@ -17,22 +18,107 @@ header{
     z-index: 2;
     position: relative;
     font-size: 18px;
+    padding-top: 5px;
 }
-header .logo{
-    padding-top: 20px;
+
+header .logo {
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 48px;
     color: #eceff4;
 }
 
-header nav a{
+header .logo img {
+    margin-right: 25px;
+}
+
+header nav a {
     margin-left: 30px;
     text-decoration: none;
     color: #555;
     font-weight: 500;
 }
 
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
 
+.event {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.event::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0); /* Lighter overlay to maintain brightness */
+    transition: background-color 0.3s, filter 0.3s;
+}
+
+.event:hover::before {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay on hover */
+    filter: blur(5px);
+}
+
+.event-content {
+    position: absolute;
+    left: 50%;
+    top: 10px; /* Position the event name near the top */
+    transform: translateX(-50%);
+    text-align: center;
+    color: #eceff4;
+    z-index: 2;
+    transition: opacity 0.3s;
+    width: 90%; /* Make text wrap smaller */
+    /* Prevent text from wrapping */
+
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+.event-content h2 {
+    margin: 0;
+    font-size: 22px; /* Slightly reduce font size */
+    color: #c14e59;
+}
+
+.event-description {
+    margin: 0;
+    font-size: 16px;
+    color: #d8dee9;
+    opacity: 0;
+    position: relative;
+    top:100px;/* Position the description at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%; /* Make text wrap smaller */
+    z-index: 2;
+}
+
+
+.event:hover .event-description {
+    opacity: 1;
+}
+
+/* Ensure the event name is always visible */
+.event:hover .event-content h2 {
+    opacity: 1;
+}
 .carousel::before{
     width: 700px;
     height: 200px;
@@ -46,4 +132,48 @@ header nav a{
     left: 50%;
     transform: translate(-10%, -50%);
     transition: 1s;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.stars {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    animation: move-background 70s linear infinite;
+}
+
+/* Keyframes for Background Animation */
+@keyframes move-background {
+    from {
+        transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        transform: translate3d(1000px, 0px, 0px);
+    }
 }
