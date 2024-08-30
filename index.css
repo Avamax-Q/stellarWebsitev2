@@ -41,7 +41,7 @@ header{
     z-index: 2;
     position: relative;
     font-size: 18px;
-    padding-top:5px; /* Adds space between the top of the header and the top of the screen */
+    padding-top:15px; /* Adds space between the top of the header and the top of the screen */
 }
 
 header .logo {
@@ -372,7 +372,7 @@ header nav a{
 }
 .arrows{
     position: absolute;
-    bottom: 10px;
+    bottom: 200px;
     width: 1140px;
     max-width: 90%;
     display: flex;
